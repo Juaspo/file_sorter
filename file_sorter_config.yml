@@ -1,0 +1,10 @@
+ 
+folders_to_check:
+  downloads: "/home/asante/Downloads/"
+  file_transfer: "/home/asante/code_cave/file_transfer/"
+  test_folder: "/home/asante/test_folder/"
+
+files_to_sort:
+  new: "/home/asante/code_cave/file_transfer/new_dir"
+  old: "/home/asante/code_cave/file_transfer/old"
+  test: "/home/asante/code_cave/file_transfer/test_dir"
