@@ -1,5 +1,5 @@
-# Full path of where to store log file (default is same dir as source)
-log_output_path: file_sorter.log
+# Full path of where to store log file ('default' will translate to same dir as script)
+log_output_path: default
 
 #List of source folders to check for files
 folders_to_check:
