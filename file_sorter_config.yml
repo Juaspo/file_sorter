@@ -1,10 +1,33 @@
- 
+ # /home/asante/
+ # /home/LINDUS/
+ # /media/WINDUX
+
 folders_to_check:
   downloads: "/home/asante/Downloads/"
-  file_transfer: "/home/asante/code_cave/file_transfer/"
-  test_folder: "/home/asante/test_folder/"
+  shared: "/home/LINDUS/shared/"
+  #test_folder: "/home/asante/test_folder/"
 
 files_to_sort:
+  3dcad: "home"
+  3dprint: /home/LINDUS/Dropbox/My_projects/3D-Print/unsorted
+  arduino: /home/LINDUS/Dropbox/My_projects/Arduino/unsorted
+  ebs: /home/LINDUS/EnBraSak/unsorted
+  eg: /home/asante/Downloads/eventgaraget/unsorted/
+  faktura: /home/LINDUS/EnBraSak/enbrasakab/faktura/unsorted_faktura
+  important: /home/asante/unsorted_important/
+  meme: "/media/WINDUX/pictures/memes/memes"
   new: "/home/asante/code_cave/file_transfer/new_dir"
   old: "/home/asante/code_cave/file_transfer/old"
+  printables: /home/LINDUS/Dropbox/My_projects/3D-Print/printables
+  roam: /home/LINDUS/roam/
+  salsa: /media/WINDUX/pictures/salsa
   test: "/home/asante/code_cave/file_transfer/test_dir"
+  thing: /home/LINDUS/Dropbox/My_projects/3D-Print/thingiverse
+  thingy: /home/LINDUS/Dropbox/My_projects/3D-Print/thingiverse
+  kvitto: /home/LINDUS/EnBraSak/enbrasakab/kvitto
+  diy: /home/LINDUS/Dropbox/My_projects/others_projects
+  mypic: /media/WINDUX/pictures/mina_div/me
+  pic: /media/WINDUX/pictures/unsorted
+  xxx: /home/asante/Downloads/unsorted/
+
+
