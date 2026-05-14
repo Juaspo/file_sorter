@@ -1,7 +1,3 @@
- # /home/asante/
- # /home/LINDUS/
- # /media/WINDUX
-
 # Full path of where to store log file (default is same dir as source)
 log_output_path: file_sorter.log
 
@@ -9,32 +5,14 @@ log_output_path: file_sorter.log
 folders_to_check:
   #downloads: "/home/asante/Downloads/"
   #shared: "/home/LINDUS/shared/"
-  test_folder1: "/home/asante/file_sorter_test_folder/"
-  test_folder2: "/media/WINDUX/file_sorter_test_folder/"
+  test_folder1: "/home/user/test_dir1"
+  test_folder2: "/home/user/test_dir2"
 
 #List of tags to check
 #tags are listed without brackets: followed by destination path
 tags_to_sort:
-# Test tags
-  test1: "/home/asante/code_cave/file_transfer/new_dir"
-  test2: "/home/asante/code_cave/file_transfer/old"
-  test3: "/home/asante/code_cave/file_transfer/test_dir"
-# Legit tags
-  #3dcad: "home"
-  3dprint: /home/LINDUS/Dropbox/My_projects/3D-Print/unsorted
-  arduino: /home/LINDUS/Dropbox/My_projects/Arduino/unsorted
-  ebs: /home/LINDUS/EnBraSak/unsorted
-  eg: /home/asante/Downloads/eventgaraget/unsorted/
-  faktura: /home/LINDUS/EnBraSak/enbrasakab/faktura/unsorted_faktura
-  important: /home/asante/unsorted_important/
-  meme: "/media/WINDUX/pictures/memes/memes"
-  printables: /home/LINDUS/Dropbox/My_projects/3D-Print/printables
-  roam: /home/LINDUS/roam/
-  salsa: /media/WINDUX/pictures/salsa
-  thing: /home/LINDUS/Dropbox/My_projects/3D-Print/thingiverse
-  thingy: /home/LINDUS/Dropbox/My_projects/3D-Print/thingiverse
-  kvitto: /home/LINDUS/EnBraSak/enbrasakab/kvitto
-  diy: /home/LINDUS/Dropbox/My_projects/others_projects
-  mypic: /media/WINDUX/pictures/mina_div/me
-  pic: /media/WINDUX/pictures/unsorted
-  xxx: /home/asante/Downloads/unsorted/
+# Example tags
+  test1: "/home/user/destination_dir1/"
+  test2: "/home/user/destination_dir2/"
+  test3: "/home/user/destination_dir3/"
+
