@@ -3,15 +3,12 @@ log_output_path: file_sorter.log
 
 #List of source folders to check for files
 folders_to_check:
-  #downloads: "/home/asante/Downloads/"
-  #shared: "/home/LINDUS/shared/"
   test_folder1: "/home/user/test_dir1"
   test_folder2: "/home/user/test_dir2"
 
 #List of tags to check
-#tags are listed without brackets: followed by destination path
 tags_to_sort:
-# Example tags
+# Example tags: tags are listed without brackets: followed by destination path
   test1: "/home/user/destination_dir1/"
   test2: "/home/user/destination_dir2/"
   test3: "/home/user/destination_dir3/"
