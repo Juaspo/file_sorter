@@ -6,7 +6,8 @@ import yaml
 import argparse
 import shutil
 
-yml_path = "file_sorter_config.yml"
+
+yml_file = "file_sorter_config.yml"
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 result_output = f"\n###\tsort action {timestamp} \t###\n"
 file_moved = 0
@@ -16,8 +17,9 @@ file_renamed = 0
 argparser = argparse.ArgumentParser()
 argparser.add_argument("-s", "--source", dest="check_source", default=None, type=str, help="Check a specific source dir")
 argparser.add_argument("-v", "--verbose", action="store_true", help="Print runtime log")
-argparser.add_argument("-t", "--tag", type=str, default=None, help="Use a specific tag for file sorter")
+#argparser.add_argument("-t", "--tag", type=str, default=None, help="Use a specific tag for file sorter")
 argparser.add_argument("-l", "--list", action="store_true", help="List files with tags")
+argparser.add_argument("-y", "--yaml", action="store_true", help="print yaml config file")
 args = argparser.parse_args()
 
 # Definition to add text to log
@@ -77,11 +79,18 @@ def moveFile(source_path, destination_path, filename, newname=None):
 
 
 # Get configuration from yaml file
+dir_path = os.path.dirname(os.path.abspath(__file__)) # get absolute path of current script dir
+yml_path = os.path.join(dir_path, yml_file)
 if os.path.exists(yml_path):
   with open (yml_path, "r") as yml_file:
-    cfg_file = yaml.safe_load(yml_file)
+    yaml_content = yml_file.read()
+    cfg_file = yaml.safe_load(yaml_content)
+  if args.yaml:
+    print(yaml_content)
+    raise SystemExit(0)
 else:
-  print (f"ERROR: Missing yaml config file {yml_path}")
+  print (f"ERROR: Missing yaml config file: {yml_path}")
+  raise SystemExit(0)
 
 
 specific_folder = args.check_source
@@ -89,8 +98,10 @@ if specific_folder is not None: # If a specific folder is passed as argument onl
   folders_to_check = {specific_folder: cfg_file["folders_to_check"][specific_folder]}
 else: # Else use defined folders from yaml
   folders_to_check = cfg_file["folders_to_check"]
-tags_to_sort = cfg_file['tags_to_sort'] # get tags from yaml file
+tags_to_sort = cfg_file["tags_to_sort"] # get tags from yaml file
 log_file_path = cfg_file["log_output_path"]
+if log_file_path == "default": # If default value is given by yaml, set path to same as script
+  log_file_path = __file__.rsplit('.', 1)[0] + '.log'
 
 for source_folder in folders_to_check:
   first_hit = True # Reset new source folder trigger
@@ -134,6 +145,6 @@ if not args.list:
   print(f"file renamed: {file_renamed}")
   print(f"file errors:  {file_error}")
 
-print("File sorter finished!")
+print(f"Logfile at:{log_file_path}\nFile sorter finished!")
 with open(log_file_path, "a") as log_f:
   log_f.write(result_output)
