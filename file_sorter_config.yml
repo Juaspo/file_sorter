@@ -1,6 +1,11 @@
 # Full path of where to store log file ('default' will translate to same dir as script)
 log_output_path: default
 
+# Character signs to use to indicate start and end of tag
+tag_sign:
+  start_sign: '['
+  end_sign: ']'
+
 #List of source folders to check for files
 folders_to_check:
   test_folder1: "/home/user/test_dir1"
