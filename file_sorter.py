@@ -77,7 +77,6 @@ def moveFile(source_path, destination_path, filename, newname=None):
     return (f"Source file cannot be found: {source_path}")
   return (f"moved from {source_path} to {destination_path} file:{filename}->{newname}")
 
-
 # Get configuration from yaml file
 dir_path = os.path.dirname(os.path.abspath(__file__)) # get absolute path of current script dir
 yml_path = os.path.join(dir_path, yml_file)
@@ -92,12 +91,12 @@ else:
   print (f"ERROR: Missing yaml config file: {yml_path}")
   raise SystemExit(0)
 
-
 specific_folder = args.check_source
 if specific_folder is not None: # If a specific folder is passed as argument only serach that folder
   folders_to_check = {specific_folder: cfg_file["folders_to_check"][specific_folder]}
 else: # Else use defined folders from yaml
   folders_to_check = cfg_file["folders_to_check"]
+tag_chars = [cfg_file["tag_sign"]["start_sign"], cfg_file["tag_sign"]["end_sign"]]
 tags_to_sort = cfg_file["tags_to_sort"] # get tags from yaml file
 log_file_path = cfg_file["log_output_path"]
 if log_file_path == "default": # If default value is given by yaml, set path to same as script
@@ -112,7 +111,7 @@ for source_folder in folders_to_check:
       for tag in tags_to_sort.keys():
 
         # Format tag to similar as file tag name. tag->[tag]
-        file_tag = "[" + tag + "]"
+        file_tag = tag_chars[0] + tag + tag_chars[1]
         if filename.startswith(file_tag):
           if(first_hit): # If new source folder, add folder name title to log
             folder_title = "\t" + source_folder + "\n"
@@ -144,7 +143,10 @@ if not args.list:
   print(f"file moved:   {file_moved}")
   print(f"file renamed: {file_renamed}")
   print(f"file errors:  {file_error}")
+  addToLog(f"file moved:   {file_moved}", True)
+  addToLog(f"file renamed: {file_renamed}", True)
+  addToLog(f"file errors:  {file_error}", True)
+  with open(log_file_path, "a") as log_f:
+      log_f.write(result_output)
 
 print(f"Logfile at:{log_file_path}\nFile sorter finished!")
-with open(log_file_path, "a") as log_f:
-  log_f.write(result_output)
